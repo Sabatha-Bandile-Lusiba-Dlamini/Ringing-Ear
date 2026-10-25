@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #080808;
+  color: #ffffff;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+input, textarea {
+  background: #111111;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  font-size: 0.95rem;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+input:focus, textarea:focus {
+  border-color: #ff4d4d;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button {
+  background: #ff4d4d;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  width: 100%;
+  font-family: inherit;
+}
+
+button:hover {
+  background: #e03e3e;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  background: #333333;
+  color: #666666;
+  cursor: not-allowed;
+  transform: none;
+}
+
+a {
+  color: #ff4d4d;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff4d4d;
+}
