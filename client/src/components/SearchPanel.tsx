@@ -54,7 +54,7 @@ function SearchPanel({
       const response = await api.get(`/api/search?q=${encodeURIComponent(query)}`)
       setResults(response.data)
       if (response.data.length === 0) {
-        setError('No underground SA artists found for that search.')
+        setError('No underground artists found for that search.')
       }
     } catch (err) {
       setError('Search failed. Try again.')
