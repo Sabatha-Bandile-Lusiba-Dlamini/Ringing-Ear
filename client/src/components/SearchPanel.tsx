@@ -51,6 +51,18 @@ function SearchPanel({
     setError(null)
 
     try {
+      /*
+
+      URI (Uniform Resource Identifier) names and points to resource on the web.
+      
+      encodeURIComponent - converts characters in the query that aren't URI safe into a format 
+      the browser can understand. Crucially, it also converts characters with 
+      special meanings (&, =, :, /, +) in the query. This way there's no misinterpretation 
+      between the special characters that already exist in the URI and the special characters
+      that are part of the query.
+      
+      
+      */
       const response = await api.get(`/api/search?q=${encodeURIComponent(query)}`)
       setResults(response.data)
       if (response.data.length === 0) {
