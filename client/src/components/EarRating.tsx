@@ -1,9 +1,11 @@
 import {useState} from 'react'
-
+/*props is short for properties*/
 interface EarRatingProps{
     rating: number
     
-    /* callback function - a function that you pass as an argument to another function.
+    /* This the pastel and rating is the colour.
+    
+    callback function - a function that you pass as an argument to another function.
     The receiving function then calls (or executes/invokes) the callback at a specific time.
     
     callback function prop that passes newly selected rating up to the parent component (EarRating)
@@ -20,7 +22,15 @@ interface EarRatingProps{
 }
 
 /*readOnly = false is a default value, meaning that if you don't pass readOnly,
-the component assumes it's false and the user can click and rate.*/
+the component assumes it's false and the user can click and rate.
+
+{rating, onRate, readOnly = false} - Destructuring. Prevents having to write props.rating,
+props.onRate etc. inside the function. The properties are treated as local variables.
+
+EarRatingProps - type annotation (the objects being passed into the parameter must
+follow the structure of the EarRatingProps interface)
+
+*/
 function EarRating({rating, onRate, readOnly = false}: EarRatingProps){
     const [hovered, setHovered] = useState<number>(0)
 
@@ -63,6 +73,30 @@ function EarRating({rating, onRate, readOnly = false}: EarRatingProps){
                          pointer hand (pointer) it keeps the arrow (default) so the user knows 
                          it isn't interactive*/}
                         cursor: readOnly? 'default': 'pointer',
+
+
+            /* summarize this:
+            - Ternary operator (condition ? if_true : if_false) 
+            - Dynamically changes the transparency of an individual ear based on the current rating.
+It determines whether a specific ear should look "filled in" (active) or "faded out" (inactive).
+
+The Breakdown
+
+• ear <= displayRating: The condition being checked. It compares the numerical value of the current ear icon (e.g., the 4th ear in a 5-ear row) against the rating currently being displayed.
+• 1 (Fully Opaque): If the ear's value is less than or equal to the rating, this value is chosen. The ear will be completely solid and bright because it falls within the given score.
+• 0.25 (Semi-Transparent): If the ear's value is higher than the rating, this value is chosen. The ear will fade to 25% opacity, making it look empty or unselected.
+
+Visual Example
+
+If displayRating is 3, a loop will evaluate 5 ear icons:
+• Ear 1: 1 <= 3 (True) → Opacity: 1 (Bright)
+• Ear 2: 2 <= 3 (True) → Opacity: 1 (Bright)
+• Ear 3: 3 <= 3 (True) → Opacity: 1 (Bright)
+• Ear 4: 4 <= 3 (False) → Opacity: 0.25 (Faded)
+• Ear 5: 5 <= 3 (False) → Opacity: 0.25 (Faded)
+Would you like to see how this logic integrates into a hover state so the ears light up dynamically when a user moves their mouse over them?
+
+            */
                         opacity: ear <= displayRating ? 1: 0.25,
                         transition: 'opacity 0.15s',
                         userSelect: 'none'
