@@ -4,7 +4,7 @@ interface EarRatingProps{
     rating: number
     
     /* callback function - a function that you pass as an argument to another function.
-    The receiving function then calls (or executes or invokes) the callback at a specific time.
+    The receiving function then calls (or executes/invokes) the callback at a specific time.
     
     callback function prop that passes newly selected rating up to the parent component (EarRating)
     
