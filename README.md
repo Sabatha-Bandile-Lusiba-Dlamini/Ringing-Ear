@@ -6,7 +6,7 @@ A community review platform for underground rap music. Built for listeners who c
 
 ## Overview
 
-Ringing Ear solves a specificity problem: mainstream review platforms are too broad to surface meaningful consensus around underground rap. This app pulls real music data from the Spotify API, persists it locally, and builds a community rating and review layer on top of it — scoped entirely to underground rap.
+Ringing Ear solves a specificity problem: mainstream review platforms are too broad to surface meaningful consensus around underground rap. This app pulls real music data from the Spotify API, persists it locally, and builds a community rating and review layer on top of it. Scoped entirely to underground rap.
 
 Users can search for any artist or album via Spotify, read community reviews, submit their own rating and written take, and see a live average score for each record.
 
@@ -51,7 +51,7 @@ server/          # Express + TypeScript
     services/    # Spotify API client (token management, search, album fetch)
 ```
 
-The backend acts as a proxy to Spotify — it handles OAuth client credentials flow internally, so API keys are never exposed to the client. Album data returned from Spotify is written to the local `albums` table on first request, decoupling the app from Spotify's rate limits on subsequent loads.
+The backend acts as a proxy to Spotify. It handles OAuth client credentials flow internally, so API keys are never exposed to the client. Album data returned from Spotify is written to the local `albums` table on first request, decoupling the app from Spotify's rate limits on subsequent loads.
 
 ---
 
