@@ -1,3 +1,11 @@
+## Overview
+
+Ringing Ear solves a specificity problem: mainstream review platforms are too broad to surface meaningful consensus around underground rap. This app pulls real music data from the Spotify API, persists it locally, and builds a community rating and review layer on top of it. Scoped entirely to underground rap.
+
+Users can search for any artist or album via Spotify, read community reviews, submit their own rating and written take, and see a live average score for each record.
+
+---
+
 ## Features
 
 - **Spotify-powered search** — search for artists and albums using the Spotify API; results are persisted to the local database on first lookup so the app builds its own catalogue over time
