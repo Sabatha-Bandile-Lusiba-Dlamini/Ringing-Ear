@@ -75,27 +75,24 @@ function EarRating({rating, onRate, readOnly = false}: EarRatingProps){
                         cursor: readOnly? 'default': 'pointer',
 
 
-            /* summarize this:
+            /* 
             - Ternary operator (condition ? if_true : if_false) 
             - Dynamically changes the transparency of an individual ear based on the current rating.
-It determines whether a specific ear should look "filled in" (active) or "faded out" (inactive).
+            - It determines whether a specific ear should look "filled in" (active) or "faded out" (inactive).
 
-The Breakdown
+            ear <= displayRating ? 1
+            
+            compares the numerical value of the current ear icon 
+            (e.g., the 4th ear in a 5-ear row) 
+            against the rating currently being displayed.
 
-• ear <= displayRating: The condition being checked. It compares the numerical value of the current ear icon (e.g., the 4th ear in a 5-ear row) against the rating currently being displayed.
-• 1 (Fully Opaque): If the ear's value is less than or equal to the rating, this value is chosen. The ear will be completely solid and bright because it falls within the given score.
-• 0.25 (Semi-Transparent): If the ear's value is higher than the rating, this value is chosen. The ear will fade to 25% opacity, making it look empty or unselected.
+            If the ear's value is less than or equal to the rating, this value is chosen. 
+            The ear will be completely solid and bright because 
+            it falls within the given score
 
-Visual Example
-
-If displayRating is 3, a loop will evaluate 5 ear icons:
-• Ear 1: 1 <= 3 (True) → Opacity: 1 (Bright)
-• Ear 2: 2 <= 3 (True) → Opacity: 1 (Bright)
-• Ear 3: 3 <= 3 (True) → Opacity: 1 (Bright)
-• Ear 4: 4 <= 3 (False) → Opacity: 0.25 (Faded)
-• Ear 5: 5 <= 3 (False) → Opacity: 0.25 (Faded)
-Would you like to see how this logic integrates into a hover state so the ears light up dynamically when a user moves their mouse over them?
-
+             If the ear's value is higher than the rating, this value is chosen. 
+             The ear will fade to 25% opacity, making it look empty or unselected.
+            
             */
                         opacity: ear <= displayRating ? 1: 0.25,
                         transition: 'opacity 0.15s',
