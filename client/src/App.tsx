@@ -11,7 +11,21 @@ import ProfilePage from './components/ProfilePage'
 
 function App() {
   const { user, loading, logout } = useAuth()
+  
+  /*refreshKey - it's job is to be a number passed as dependency to "useEffect" in 
+  "ReviewList" When it's incremented, React sees the value changed, so it re-runs the 
+  effect, which re-fetches reviews from the backend and updates the list. 
+
+  Incrementation is a valid trigger, because React re-renders whenever its state 
+  or a prop changes. "refreshKey" counts as a prop change as far as ReviewList 
+  is concerned. 
+
+  number changes -> prop changes -> useEffect dependency array detects change ->
+  fetch runs again -> list updates
+  
+  */
   const [refreshKey, setRefreshKey] = useState(0)
+  
   const [viewingProfile, setViewingProfile] = useState<string | null>(null)
   const [viewingArtist, setViewingArtist] = useState<string | null>(null)
   const [preselectedAlbum, setPreselectedAlbum] = useState<any>(null)
