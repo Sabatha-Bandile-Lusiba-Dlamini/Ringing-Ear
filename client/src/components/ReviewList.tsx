@@ -105,6 +105,11 @@ function ReviewList({
                 </p>
               )}
               <p style={{ color: '#555555', fontSize: '0.75rem', marginTop: '8px' }}>
+
+                {/*It parses the database timestamp into a JS Date object, then formats 
+                it as a localised date string. 'en-ZA' specifically gives DD/MM/YYYY 
+                ordering, which is the standard South African date format, as opposed 
+                to 'en-US' which would give MM/DD/YYYY.*/}
                 {new Date(review.created_at).toLocaleDateString('en-ZA')}
               </p>
             </div>
